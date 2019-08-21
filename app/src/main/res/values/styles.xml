@@ -42,4 +42,8 @@
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
     </style>
 
+    <style name="Widget.BottomNavigationView14" parent="@style/Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/rubik_regular</item>
+    </style>
+
 </resources>

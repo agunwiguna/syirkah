@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddProjectActivity"></activity>
+        <activity android:name=".DetailInvestasiActivity"></activity>
+        <activity android:name=".AddProjectActivity" />
         <activity android:name=".UpdateProfileActivity" />
         <activity android:name=".SellActivity" />
         <activity android:name=".InvestasiActivity" />
