@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Syirkah</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Project</string>
+    <string name="slide_1_desc">Berinvestasi di project orang lain</string>
+    <string name="slide_2_title">Jual Beli</string>
+    <string name="slide_2_desc">Temukan Logam Mulia dengan harga terjangkau</string>
+    <string name="slide_3_title">Member</string>
+    <string name="slide_3_desc">Tambah Relasimu di Komunitas</string>
+    <string name="play_again_desc">Untuk mwlihatnya lagi Settings -> apps -> Intro View -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="title_activity_coba">CobaActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_project">Project</string>
+    <string name="title_jual">Jual Beli</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_member">Member</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Belum punya akun? Register disini</string>
+</resources>

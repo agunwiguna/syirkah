@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/primaryTextColor</color>
+    <color name="colorPrimaryDark">@color/primaryTextColor</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#00a5ff</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="whiteCardColor">#fff</color>
+
+    <!-- Screens background color-->
+    <color name="bg_slider_screen1">#2196F3</color>
+    <color name="bg_slider_screen2">#03A9F4</color>
+    <color name="bg_slider_screen3">#00BCD4</color>
+    <!-- dots inactive colors -->
+    <color name="dot_inactive_screen1">#1565C0</color>
+    <color name="dot_inactive_screen2">#1565C0</color>
+    <color name="dot_inactive_screen3">#1565C0</color>
+    <!-- dots active colors -->
+    <color name="dot_active_screen1">#00BCD4</color>
+    <color name="dot_active_screen2">#03A9F4</color>
+    <color name="dot_active_screen3">#2196F3</color>
+    <array name="array_dot_active">
+        <item>@color/dot_active_screen1</item>
+        <item>@color/dot_active_screen2</item>
+        <item>@color/dot_active_screen3</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_inactive_screen1</item>
+        <item>@color/dot_inactive_screen2</item>
+        <item>@color/dot_inactive_screen3</item>
+    </array>
+</resources>
