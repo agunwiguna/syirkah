@@ -10,9 +10,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ciamiscode.syirkah.model.UserModel;
+import com.ciamiscode.syirkah.utils.Preferences;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -21,6 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     static int REQUESTCODE = 1;
     static int PReqCode = 1;
     Uri pickedImgUri;
+
+    private EditText edt_nama,edt_email,edt_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,32 @@ public class RegisterActivity extends AppCompatActivity {
                 }else{
                     openGallery();
                 }
+            }
+        });
+
+        edt_nama = findViewById(R.id.tv_nama_lengkap);
+        edt_email = findViewById(R.id.tv_email);
+        edt_password = findViewById(R.id.tv_password);
+
+
+        Button btn_register = findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String nama = edt_nama.getText().toString();
+                final String email = edt_email.getText().toString();
+                String password = edt_password.getText().toString();
+
+                UserModel userModel = new UserModel();
+                userModel.setNama(nama);
+                userModel.setEmail(email);
+                userModel.setPasswword(password);
+
+                Preferences.setUserPreferences(getBaseContext(),userModel);
+                Preferences.setLoggedInStatus(getBaseContext(),true);
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                finish();
             }
         });
     }
@@ -81,9 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                         PReqCode);
             }
 
-        }
-        else
-        {
+        }else{
             openGallery();
         }
 

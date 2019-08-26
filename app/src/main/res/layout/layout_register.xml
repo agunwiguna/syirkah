@@ -29,6 +29,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/tv_nama_lengkap"
                 style="@style/modifiedEditText"
                 android:hint="Nama Lengkap"
                 android:inputType="text"
@@ -50,6 +51,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/tv_email"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -93,6 +95,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/tv_password"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
@@ -100,6 +103,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

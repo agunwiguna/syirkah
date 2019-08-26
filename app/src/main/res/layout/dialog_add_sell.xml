@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,6 +11,14 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/loginViewsMargin">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Title"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/rubik_regular"/>
 
         <android.support.design.widget.TextInputLayout
             style="@style/parent"
@@ -58,6 +66,8 @@
                 android:layout_toLeftOf="@id/btn_batal"
                 android:layout_toStartOf="@id/btn_batal"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:text="Simpan"
                 android:textAllCaps="false"/>
 
@@ -70,6 +80,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:text="Batal"
+                android:background="@android:color/holo_red_light"
+                android:textColor="@android:color/white"
                 android:textAllCaps="false"/>
 
         </RelativeLayout>

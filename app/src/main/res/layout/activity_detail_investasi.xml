@@ -45,9 +45,9 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_project"
+            android:src="@drawable/dollar"
             app:civ_border_color="@android:color/white"
-            app:civ_border_width="5dp" />
+            app:civ_border_width="3dp" />
 
     </RelativeLayout>
 
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Mulai Proyek :"/>
+                    android:text="Tanggal Mulai Proyek"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                     android:textSize="14sp"
                     android:layout_weight="1"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="22 Agustus 2019"
+                    android:text=": 22 Agustus 2019"
                     android:textColor="@android:color/black"/>
 
             </TableRow>
@@ -150,14 +150,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Selesai Proyek :"/>
+                    android:text="Tanggal Selesai Proyek "/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:layout_weight="1"
-                    android:text="30 Agustus 2019"
+                    android:text=": 30 Agustus 2019"
                     android:fontFamily="@font/rubik_regular"
                     android:textColor="@android:color/black"/>
 
@@ -173,14 +173,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Biaya Proyek :"/>
+                    android:text="Biaya Proyek"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:layout_weight="1"
-                    android:text="Rp. 2.000.000"
+                    android:text=": Rp. 2.000.000"
                     android:fontFamily="@font/rubik_regular"
                     android:textColor="@android:color/black"/>
 

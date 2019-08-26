@@ -45,9 +45,9 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_project"
+            android:src="@drawable/dollar"
             app:civ_border_color="@android:color/white"
-            app:civ_border_width="5dp" />
+            app:civ_border_width="3dp" />
 
     </RelativeLayout>
 
@@ -134,6 +134,8 @@
                 android:layout_toLeftOf="@id/btn_batal"
                 android:layout_toStartOf="@id/btn_batal"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:text="Simpan"
                 android:textAllCaps="false"/>
 
@@ -145,6 +147,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@android:color/holo_red_light"
+                android:textColor="@android:color/white"
                 android:text="Batal"
                 android:textAllCaps="false"/>
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SellActivity extends AppCompatActivity {
 
@@ -29,7 +30,9 @@ public class SellActivity extends AppCompatActivity {
     public void showDialogInput(){
         dialog = new AppCompatDialog(this);
         dialog.setContentView(R.layout.dialog_add_sell);
-        dialog.setTitle("Jual Emas");
+
+        TextView title = dialog.findViewById(R.id.tv_title);
+        title.setText("Tambah Data Jual Emas");
 
         Button buttonSave = dialog.findViewById(R.id.btn_simpan);
         buttonSave.setOnClickListener(new View.OnClickListener() {

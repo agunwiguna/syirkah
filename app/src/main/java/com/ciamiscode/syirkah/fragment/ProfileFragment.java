@@ -9,15 +9,18 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ciamiscode.syirkah.InvestasiActivity;
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.SellActivity;
 import com.ciamiscode.syirkah.SettingActivity;
+import com.ciamiscode.syirkah.utils.Preferences;
 
 public class ProfileFragment extends Fragment {
 
     CardView cv_setting,cv_sell,cv_investasi;
+    private TextView namaProfile;
 
     @Nullable
     @Override
@@ -50,6 +53,9 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+        namaProfile = view.findViewById(R.id.tv_nama_profile);
+        namaProfile.setText(Preferences.getRegisteredNama(getContext()));
 
         return view;
     }
