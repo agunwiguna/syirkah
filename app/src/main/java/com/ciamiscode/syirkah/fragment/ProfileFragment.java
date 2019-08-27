@@ -16,11 +16,14 @@ import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.SellActivity;
 import com.ciamiscode.syirkah.SettingActivity;
 import com.ciamiscode.syirkah.utils.Preferences;
+import com.ciamiscode.syirkah.utils.SharedPrefManager;
 
 public class ProfileFragment extends Fragment {
 
     CardView cv_setting,cv_sell,cv_investasi;
     private TextView namaProfile;
+
+    SharedPrefManager sharedPrefManager;
 
     @Nullable
     @Override
@@ -54,8 +57,10 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        sharedPrefManager = new SharedPrefManager(getContext());
+
         namaProfile = view.findViewById(R.id.tv_nama_profile);
-        namaProfile.setText(Preferences.getRegisteredNama(getContext()));
+        namaProfile.setText(sharedPrefManager.getSPNama());
 
         return view;
     }

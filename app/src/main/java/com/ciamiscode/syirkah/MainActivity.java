@@ -1,14 +1,11 @@
 package com.ciamiscode.syirkah;
 
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ciamiscode.syirkah.fragment.BuySellFragment;
 import com.ciamiscode.syirkah.fragment.HomeFragment;
@@ -17,8 +14,6 @@ import com.ciamiscode.syirkah.fragment.ProfileFragment;
 import com.ciamiscode.syirkah.fragment.ProjectFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
-    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,22 +67,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return loadFragment(fragment);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Tekan lagi untuk keluar..", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
 }

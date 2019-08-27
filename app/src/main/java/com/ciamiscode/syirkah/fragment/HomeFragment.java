@@ -10,19 +10,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ciamiscode.syirkah.R;
+import com.ciamiscode.syirkah.utils.SharedPrefManager;
 
 public class HomeFragment extends Fragment {
 
-    public static final String EXTRA_NAMA   = "extra_nama";
-
     private TextView tv_nama;
 
-    public static String KEY_ACTIVITY = "msg_activity";
+    SharedPrefManager sharedPrefManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,null);
+
+        sharedPrefManager = new SharedPrefManager(getContext());
+
+        tv_nama = view.findViewById(R.id.nama_user);
+        tv_nama.setText(sharedPrefManager.getSPNama());
 
         return view;
     }

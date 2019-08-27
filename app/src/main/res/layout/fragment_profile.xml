@@ -79,17 +79,17 @@
                                     android:id="@+id/tv_nama_profile"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Agun Wiguna"
+                                    tools:text="Nama Lengkap"
                                     android:textStyle="bold"
-                                    android:textSize="25sp"
+                                    android:textSize="20sp"
                                     android:layout_marginTop="60dp"
                                     android:layout_gravity="center_horizontal"
                                     android:fontFamily="@font/rubik_regular"/>
                                 <TextView
-                                    android:id="@+id/txt_detail_jabatan"
+                                    android:id="@+id/tv_nama_perusahaan"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Cyberlabs"
+                                    tools:text="Perusahaan"
                                     android:textSize="17sp"
                                     android:layout_marginTop="10dp"
                                     android:layout_gravity="center_horizontal"/>
