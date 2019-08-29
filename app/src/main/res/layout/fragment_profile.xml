@@ -54,7 +54,7 @@
                         android:layout_height="150dp"
                         android:layout_centerHorizontal="true"
                         android:elevation="1dp"
-                        android:src="@android:color/darker_gray"/>
+                        tools:src="@android:color/darker_gray"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,10 +107,11 @@
                                         android:text="Total Emas : "/>
 
                                     <TextView
+                                        android:id="@+id/tv_emas_profile"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/rubik_regular"
-                                        android:text=" 0 Gram"/>
+                                        android:text="0"/>
 
                                 </LinearLayout>
 

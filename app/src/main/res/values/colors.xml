@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/primaryTextColor</color>
     <color name="colorPrimaryDark">@color/primaryTextColor</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">@color/primaryTextColor</color>
 
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>

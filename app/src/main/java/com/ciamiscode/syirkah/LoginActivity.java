@@ -95,8 +95,19 @@ public class LoginActivity extends AppCompatActivity {
 
                                                 Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
+                                                //get data user login
+                                                String id_user = jsonRESULT.getJSONObject("user").getString("id_user");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_ID_USER, id_user);
+
                                                 String nama = jsonRESULT.getJSONObject("user").getString("nama");
                                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
+
+                                                String perusahaan = jsonRESULT.getJSONObject("user").getString("perusahaan");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_PERUSAHAAN, perusahaan);
+
+                                                String foto = jsonRESULT.getJSONObject("user").getString("foto");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
+
                                                 sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
                                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));

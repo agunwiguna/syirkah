@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/loginViewsMargin"
+    android:layout_marginBottom="@dimen/loginViewsMargin"
+    android:background="@color/whiteCardColor"
+    android:elevation="5dp"
+    app:cardCornerRadius="@dimen/loginCardRadius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/loginViewsMargin">
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <EditText
+                android:id="@+id/et_ubah_nama_proyek"
+                style="@style/modifiedEditText"
+                android:hint="Nama Proyek"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <EditText
+                android:id="@+id/et_ubah_deskripsi_proyek"
+                style="@style/modifiedEditText"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:hint="Deskripsi Proyek"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <!--<EditText-->
+                <!--android:id="@+id/et_ubah_tgl_mulai"-->
+                <!--style="@style/modifiedEditText"-->
+                <!--android:clickable="true"-->
+                <!--android:editable="false"-->
+                <!--android:focusable="false"-->
+                <!--android:maxLines="1"-->
+                <!--android:hint="Tanggal Mulai"/>-->
+            <EditText
+                android:id="@+id/et_ubah_tgl_mulai"
+                style="@style/modifiedEditText"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="Tanggal Mulai"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <!--<EditText-->
+                <!--android:id="@+id/et_ubah_tgl_selesai"-->
+                <!--style="@style/modifiedEditText"-->
+                <!--android:clickable="true"-->
+                <!--android:editable="false"-->
+                <!--android:focusable="false"-->
+                <!--android:maxLines="1"-->
+                <!--android:hint="Tanggal Selesai"/>-->
+            <EditText
+                android:id="@+id/et_ubah_tgl_selesai"
+                style="@style/modifiedEditText"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="Tanggal Selesai"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <EditText
+                android:id="@+id/et_ubah_kebutuhan_biaya_proyek"
+                style="@style/modifiedEditText"
+                android:inputType="number"
+                android:maxLines="1"
+                android:hint="Kebutuhan Biaya Proyek"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/parent"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+
+            <EditText
+                android:id="@+id/et_ubah_total_biaya_proyek"
+                style="@style/modifiedEditText"
+                android:inputType="number"
+                android:maxLines="1"
+                android:hint="Total Biaya Proyek"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_ubah_investasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/rounded_button"
+            android:text="Ubah"
+            android:textAllCaps="false"
+            android:textColor="@color/whiteTextColor" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

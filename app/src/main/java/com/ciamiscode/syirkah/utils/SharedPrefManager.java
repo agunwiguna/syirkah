@@ -7,8 +7,11 @@ public class SharedPrefManager {
 
     public static final String SP_SYIRKAH_APP = "spSyirkahApp";
 
+    public static final String SP_ID_USER = "spIdUser";
     public static final String SP_NAMA = "spNama";
     public static final String SP_EMAIL = "spEmail";
+    public static final String SP_PERUSAHAAN = "spPerusahaan";
+    public static final String SP_FOTO = "spFoto";
 
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
@@ -35,6 +38,10 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
+    public String getIdUser(){
+        return sp.getString(SP_ID_USER, "");
+    }
+
     public String getSPNama(){
         return sp.getString(SP_NAMA, "");
     }
@@ -43,12 +50,18 @@ public class SharedPrefManager {
         return sp.getString(SP_EMAIL, "");
     }
 
+    public String getSpPerusahaan() {
+        return sp.getString(SP_PERUSAHAAN,"");
+    }
+
+    public String getSpFoto() {
+        return sp.getString(SP_FOTO,"") ;
+    }
+
     public Boolean getSPSudahLogin(){
         return sp.getBoolean(SP_SUDAH_LOGIN, false);
     }
 
-    public Boolean getNotLogin(){
-        return sp.getBoolean(SP_SUDAH_LOGIN, true);
-    }
+
 
 }

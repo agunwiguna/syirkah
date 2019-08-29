@@ -9,19 +9,25 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ciamiscode.syirkah.InvestasiActivity;
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.SellActivity;
 import com.ciamiscode.syirkah.SettingActivity;
-import com.ciamiscode.syirkah.utils.Preferences;
 import com.ciamiscode.syirkah.utils.SharedPrefManager;
 
 public class ProfileFragment extends Fragment {
 
     CardView cv_setting,cv_sell,cv_investasi;
     private TextView namaProfile;
+    private TextView namaPerushaan;
+    private TextView emas;
+    private ImageView foto;
+
+    int img = R.drawable.ic_logo_syirkah;
 
     SharedPrefManager sharedPrefManager;
 
@@ -59,8 +65,21 @@ public class ProfileFragment extends Fragment {
 
         sharedPrefManager = new SharedPrefManager(getContext());
 
+        foto = view.findViewById(R.id.img_profile);
+        String img_url = "http://syirkah.solution.dipointer.com/img/"+sharedPrefManager.getSpFoto();
+
+        Glide.with(getContext())
+                .load(img_url)
+                .into(foto);
+
         namaProfile = view.findViewById(R.id.tv_nama_profile);
         namaProfile.setText(sharedPrefManager.getSPNama());
+
+        namaPerushaan = view.findViewById(R.id.tv_nama_perusahaan);
+        namaPerushaan.setText(sharedPrefManager.getSpPerusahaan());
+
+        emas = view.findViewById(R.id.tv_emas_profile);
+        emas.setText(sharedPrefManager.getIdUser());
 
         return view;
     }
