@@ -18,6 +18,7 @@ public class ResponseModel {
     List<InvestasiModel> result_all_investasi;
     List<InvestasiModel> result_limit_investasi;
     List<UserModel> result_member;
+    List<InvestorModel> result_investor;
 
     public String getStatusCode() {
         return statusCode;
@@ -57,5 +58,13 @@ public class ResponseModel {
 
     public void setResult_limit_investasi(List<InvestasiModel> result_limit_investasi) {
         this.result_limit_investasi = result_limit_investasi;
+    }
+
+    public List<InvestorModel> getResult_investor() {
+        return result_investor;
+    }
+
+    public void setResult_investor(List<InvestorModel> result_investor) {
+        this.result_investor = result_investor;
     }
 }

@@ -50,7 +50,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_project"
+                android:src="@drawable/dollar"
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="5dp" />
 
@@ -62,19 +62,19 @@
             android:layout_below="@id/nav_investasi"
             android:orientation="vertical">
 
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal"
-                android:indeterminateTint="@color/colorPrimary" />
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:indeterminateTint="@color/colorPrimary" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerInvestasi"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerInvestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"/>
 
         </RelativeLayout>
 

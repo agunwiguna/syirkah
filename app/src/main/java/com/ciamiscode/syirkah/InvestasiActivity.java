@@ -83,6 +83,7 @@ public class InvestasiActivity extends AppCompatActivity {
                 if (statusCode.equals("200")) {
                     mItems = response.body().getResult();
                     viewAdapter = new InvestasiAdapter(InvestasiActivity.this, mItems);
+                    viewAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(viewAdapter);
                 }
             }

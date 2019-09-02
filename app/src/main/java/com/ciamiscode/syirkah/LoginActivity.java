@@ -131,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                    loading.dismiss();
                                     Toast.makeText(LoginActivity.this, "Oops.. Tidak ada koneksi Internet", Toast.LENGTH_SHORT).show();
                                 }
                             });

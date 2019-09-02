@@ -43,6 +43,7 @@ public class InvestasiAllAdapter extends RecyclerView.Adapter<InvestasiAllAdapte
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ctx, DetailInvestasiActivity.class);
+                i.putExtra(DetailInvestasiActivity.EXTRA_ID_INVESTASI,im.getId_investasi());
                 i.putExtra(DetailInvestasiActivity.EXTRA_NAMA_INVESTASI,im.getNama_investasi());
                 i.putExtra(DetailInvestasiActivity.EXTRA_DESKRIPSI,im.getDeskripsi());
                 i.putExtra(DetailInvestasiActivity.EXTRA_TGL_MULAI,im.getTgl_mulai());
@@ -50,8 +51,9 @@ public class InvestasiAllAdapter extends RecyclerView.Adapter<InvestasiAllAdapte
                 i.putExtra(DetailInvestasiActivity.EXTRA_KEBUTUHAN_BIAYA,im.getKebutuhan_biaya());
                 i.putExtra(DetailInvestasiActivity.EXTRA_TOTAL_BIAYA,im.getTotal_biaya());
                 i.putExtra(DetailInvestasiActivity.EXTRA_NAMA,im.getNama());
-                i.putExtra(DetailInvestasiActivity.EXTRA_PERUSAAN,im.getPerusahaan());
+                i.putExtra(DetailInvestasiActivity.EXTRA_PERUSAHAAN,im.getPerusahaan());
                 i.putExtra(DetailInvestasiActivity.EXTRA_FOTO,im.getFoto());
+                i.putExtra(DetailInvestasiActivity.EXTRA_SISA,im.getSisa());
                 ctx.startActivity(i);
             }
         });

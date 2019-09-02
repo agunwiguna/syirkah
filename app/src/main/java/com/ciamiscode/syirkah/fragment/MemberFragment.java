@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ciamiscode.syirkah.R;
@@ -30,7 +31,7 @@ import retrofit2.Response;
 
 public class MemberFragment extends Fragment {
 
-    CircleImageView foto_ustadz;
+    CircleImageView imgMember;
 
     private MemberAdapter viewAdapter;
     private List<UserModel> mItems = new ArrayList<>();
@@ -42,8 +43,8 @@ public class MemberFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_member,null);
 
-//        foto_ustadz = view.findViewById(R.id.foto_ustadz);
-//        foto_ustadz.setOnClickListener(new View.OnClickListener() {
+//        imgMember = view.findViewById(R.id.imgMember);
+//        imgMember.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                DialogMemberFragment d = new DialogMemberFragment();
@@ -54,11 +55,11 @@ public class MemberFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerMember);
         progress = view.findViewById(R.id.progress_bar);
 
-        viewAdapter = new MemberAdapter(getContext(),mItems);
+        //viewAdapter = new MemberAdapter(getContext(),mItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(viewAdapter);
+        //recyclerView.setAdapter(viewAdapter);
 
         loadDataMember();
 

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
-    tools:context=".DetailInvestasiActivity">
+    tools:context=".DetailInvestorActivity">
 
     <RelativeLayout
         android:id="@+id/nav_investasi"
@@ -61,8 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="15dp"
             android:orientation="horizontal">
 
             <View
@@ -73,10 +72,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/tv_detail_nama_investasi"
+                android:id="@+id/tv_detail_investor_nama_investasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -85,40 +84,40 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_regular"
-                tools:text="Project Kosan-Kosan"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                tools:text="Project Kosan-Kosan" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_regular"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Deskripsi Proyek :"/>
+            android:fontFamily="@font/rubik_regular"
+            android:text="Deskripsi Proyek :" />
 
         <TextView
-            android:id="@+id/tv_detail_deskripsi_investasi"
+            android:id="@+id/tv_detail_investor_deskripsi_investasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/content_text"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/rubik_regular"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:fontFamily="@font/rubik_regular"
+            android:textColor="@android:color/black"
+            tools:text="@string/content_text" />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginBottom="8dp">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -130,17 +129,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Mulai Proyek"/>
+                    android:text="Tanggal Mulai Proyek" />
 
                 <TextView
-                    android:id="@+id/tv_detail_tgl_mulai"
+                    android:id="@+id/tv_detail_investor_tgl_mulai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
                     android:fontFamily="@font/rubik_regular"
-                    tools:text="22 Agustus 2019"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    tools:text="22 Agustus 2019" />
 
             </TableRow>
 
@@ -154,17 +153,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Selesai Proyek "/>
+                    android:text="Tanggal Selesai Proyek " />
 
                 <TextView
-                    android:id="@+id/tv_detail_tgl_selesai"
+                    android:id="@+id/tv_detail_investor_tgl_selesai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/rubik_regular"
                     android:text="30 Agustus 2019"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
 
             </TableRow>
 
@@ -178,17 +177,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Kebutuhan Biaya Proyek"/>
+                    android:text="Kebutuhan Biaya Proyek" />
 
                 <TextView
-                    android:id="@+id/tv_detail_kebutuhan_biaya"
+                    android:id="@+id/tv_detail_investor_kebutuhan_biaya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
                     android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    tools:text="Rp. 2.000.000" />
 
             </TableRow>
 
@@ -202,17 +201,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Total Biaya Proyek"/>
+                    android:text="Total Biaya Proyek" />
 
                 <TextView
-                    android:id="@+id/tv_detail_total_biaya"
+                    android:id="@+id/tv_detail_investor_total_biaya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
                     android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    tools:text="Rp. 2.000.000" />
 
             </TableRow>
 
@@ -226,17 +225,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:fontFamily="@font/rubik_regular"
-                    android:text="Sisa Biaya Proyek"/>
+                    android:text="Sisa Biaya Proyek" />
 
                 <TextView
-                    android:id="@+id/tv_detail_sisa_biaya"
+                    android:id="@+id/tv_detail_investor_sisa_biaya"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
                     android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    tools:text="Rp. 2.000.000" />
 
             </TableRow>
 
@@ -247,18 +246,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:text="Pemilik Proyek"/>
+            android:text="Pemilik Proyek" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/tv_detail_profile_investasi"
+                android:id="@+id/tv_detail_investor_profile_investasi"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_centerVertical="true"
@@ -272,26 +271,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/tv_detail_profile_investasi"
-                android:layout_toRightOf="@id/tv_detail_profile_investasi"
+                android:layout_toEndOf="@id/tv_detail_investor_profile_investasi"
+                android:layout_toRightOf="@id/tv_detail_investor_profile_investasi"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_detail_nama_pemilik"
+                    android:id="@+id/tv_detail_investor_nama_pemilik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/rubik_regular"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/rubik_regular"
                     tools:text="Nama Pemilik Proyek" />
 
                 <TextView
-                    android:id="@+id/tv_detail_perusahaan"
+                    android:id="@+id/tv_detail_investor_perusahaan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik_regular"
                     android:ellipsize="end"
+                    android:fontFamily="@font/rubik_regular"
                     android:maxLines="2"
                     tools:text="Perusahaan" />
 
@@ -299,20 +298,62 @@
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnInvestasiNow"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/rubik_regular"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:text="Investasi Sekarang"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:textAllCaps="false"
-            android:background="@drawable/rounded_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:text="Data Investor" />
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:indeterminateTint="@color/colorPrimary" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerInvestor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

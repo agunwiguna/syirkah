@@ -2,11 +2,13 @@ package com.ciamiscode.syirkah.api;
 
 import com.ciamiscode.syirkah.model.ResponseModel;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -15,6 +17,17 @@ public interface ApiService {
     @POST("login.php")
     Call<ResponseModel> loginRequest(@Field("email") String email,
                                      @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<ResponseModel> register(@Field("nama") String nama,
+                                 @Field("alamat") String alamat,
+                                 @Field("email") String email,
+                                 @Field("telpon") String telpon,
+                                 @Field("perusahaan") String perusahaan,
+                                 @Field("alamat_perusahaan") String alamat_perusahaan,
+                                 @Field("password") String password,
+                                 @Field("foto") String foto);
 
     @FormUrlEncoded
     @POST("store_investasi.php")
@@ -37,6 +50,13 @@ public interface ApiService {
                                       @Field("total_biaya") String total_biaya);
 
     @FormUrlEncoded
+    @POST("store_investor.php")
+    Call<ResponseModel> postInvestor(@Field("id_user_investor") String id_user_investor,
+                                      @Field("id_investasi") String id_investasi,
+                                      @Field("dana") int dana,
+                                      @Field("sisa") int sisa);
+
+    @FormUrlEncoded
     @POST("delete_investasi.php")
     Call<ResponseModel> deleteInvestasi(@Field("id_investasi") String id_investasi);
 
@@ -51,6 +71,9 @@ public interface ApiService {
 
     @GET("tampil_limit_investasi.php")
     Call<ResponseModel> getAllLimitInvestasi();
+
+    @GET("tampil_investor.php")
+    Call<ResponseModel> getAllInvestor();
 
 
 }

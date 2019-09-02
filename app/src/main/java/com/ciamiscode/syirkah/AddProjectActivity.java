@@ -11,13 +11,17 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ciamiscode.syirkah.adapter.InvestasiAdapter;
 import com.ciamiscode.syirkah.api.ApiEndPoint;
 import com.ciamiscode.syirkah.api.ApiService;
+import com.ciamiscode.syirkah.model.InvestasiModel;
 import com.ciamiscode.syirkah.model.ResponseModel;
 import com.ciamiscode.syirkah.utils.SharedPrefManager;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -40,6 +44,8 @@ public class AddProjectActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener date,dates;
 
     private ProgressDialog progress;
+    private InvestasiAdapter viewAdapter;
+    private List<InvestasiModel> mItems = new ArrayList<>();
 
     SharedPrefManager sharedPrefManager;
 
@@ -49,6 +55,7 @@ public class AddProjectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_project);
 
         sharedPrefManager = new SharedPrefManager(this);
+        viewAdapter = new InvestasiAdapter(this,mItems);
 
         edtNamaProyek = findViewById(R.id.et_nama_proyek);
         edtDeskripsi = findViewById(R.id.et_deskripsi_proyek);
@@ -166,6 +173,7 @@ public class AddProjectActivity extends AppCompatActivity {
 
                                 if (statusCode.equals("200")) {
                                     Toast.makeText(AddProjectActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    viewAdapter.notifyDataSetChanged();
                                 } else if (statusCode.equals("202")) {
                                     Toast.makeText(AddProjectActivity.this, message, Toast.LENGTH_SHORT).show();
                                 } else if (statusCode.equals("404")) {

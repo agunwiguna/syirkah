@@ -42,11 +42,12 @@ public class ProjectFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerAllInvestasi);
         progress = view.findViewById(R.id.progress_bar);
 
-        viewAdapter = new InvestasiAllAdapter(getContext(),mItems);
+        //viewAdapter = new InvestasiAllAdapter(getContext(),mItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(viewAdapter);
+        //viewAdapter.notifyDataSetChanged();
 
         loadDataAllInvestasi();
 
@@ -66,6 +67,7 @@ public class ProjectFragment extends Fragment {
                     mItems = response.body().getResult_all_investasi();
                     viewAdapter = new InvestasiAllAdapter(getContext(), mItems);
                     recyclerView.setAdapter(viewAdapter);
+                    viewAdapter.notifyDataSetChanged();
                 }else if(statusCode.equals("404")){
                     Toast.makeText(getContext(), "Oops, Data masih kosong!! ", Toast.LENGTH_SHORT).show();
                 }

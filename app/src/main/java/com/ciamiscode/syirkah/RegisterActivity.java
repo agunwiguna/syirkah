@@ -1,14 +1,17 @@
 package com.ciamiscode.syirkah;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +19,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ciamiscode.syirkah.model.UserModel;
-import com.ciamiscode.syirkah.utils.Preferences;
+import com.ciamiscode.syirkah.api.ApiEndPoint;
+import com.ciamiscode.syirkah.api.ApiService;
+import com.ciamiscode.syirkah.model.ResponseModel;
+import com.ciamiscode.syirkah.utils.ImageUtils;
+
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -27,7 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
     static int PReqCode = 1;
     Uri pickedImgUri;
 
-    private EditText edt_nama,edt_email,edt_password;
+    private ProgressDialog progress;
+
+    EditText edtNama,edtAlamat,edtEmail,edtTelpon,edtPerusahaan,edtAlamatPerusahaan,edtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,29 +70,25 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        edt_nama = findViewById(R.id.tv_nama_lengkap);
-        edt_email = findViewById(R.id.tv_email);
-        edt_password = findViewById(R.id.tv_password);
-
 
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pickedImgUri != null) {
+                    Bitmap bitmap = null;
+                    try {
+                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), pickedImgUri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                final String nama = edt_nama.getText().toString();
-                final String email = edt_email.getText().toString();
-                String password = edt_password.getText().toString();
+                    String encoded = ImageUtils.bitmapToBase64String(bitmap, 100);
+                    register(encoded);
 
-                UserModel userModel = new UserModel();
-                userModel.setNama(nama);
-                userModel.setEmail(email);
-                userModel.setPasswword(password);
-
-                Preferences.setUserPreferences(getBaseContext(),userModel);
-                Preferences.setLoggedInStatus(getBaseContext(),true);
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
-                finish();
+                }else{
+                    Toast.makeText(RegisterActivity.this, "You must choose the image", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -117,6 +126,56 @@ public class RegisterActivity extends AppCompatActivity {
         }else{
             openGallery();
         }
-
     }
+
+    private void register(String foto){
+
+        edtNama = findViewById(R.id.tv_register_nama);
+        edtEmail = findViewById(R.id.tv_register_email);
+        edtAlamat = findViewById(R.id.tv_register_alamat);
+        edtPerusahaan = findViewById(R.id.tv_register_perusahaan);
+        edtAlamatPerusahaan = findViewById(R.id.tv_register_alamat_perusahaan);
+        edtTelpon = findViewById(R.id.tv_register_telpon);
+        edtPassword = findViewById(R.id.tv_regsiter_password);
+
+        String nama = edtNama.getText().toString();
+        String alamat = edtAlamat.getText().toString();
+        String email = edtEmail.getText().toString();
+        String telpon = edtTelpon.getText().toString();
+        String perusahaan = edtEmail.getText().toString();
+        String alamat_perusahaan = edtAlamatPerusahaan.getText().toString();
+        String password = edtPassword.getText().toString();
+
+        progress = new ProgressDialog(RegisterActivity.this);
+        progress.setCancelable(false);
+        progress.setMessage("Harap Tunggu ...");
+        progress.show();
+
+        ApiService api = ApiEndPoint.getClient().create(ApiService.class);
+        Call<ResponseModel> call = api.register(nama,alamat,email,telpon,perusahaan,alamat_perusahaan,password,foto);
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                String statusCode = response.body().getStatusCode();
+                String message = response.body().getMessage();
+
+                progress.dismiss();
+
+                if (statusCode.equals("200")) {
+                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                } else if (statusCode.equals("202")) {
+                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else if (statusCode.equals("500")) {
+                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+
+            }
+        });
+    }
+
 }

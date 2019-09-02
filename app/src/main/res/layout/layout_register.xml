@@ -29,7 +29,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/tv_nama_lengkap"
+                android:id="@+id/tv_register_nama"
                 style="@style/modifiedEditText"
                 android:hint="Nama Lengkap"
                 android:inputType="text"
@@ -41,31 +41,38 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/tv_register_alamat"
                 style="@style/modifiedEditText"
                 android:hint="Alamat"
                 android:inputType="text"
                 android:maxLines="1" />
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
-                android:id="@+id/tv_email"
+                android:id="@+id/tv_register_email"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="Email"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
+
             <EditText
+                android:id="@+id/tv_register_telpon"
                 style="@style/modifiedEditText"
                 android:inputType="text"
                 android:maxLines="1"
                 android:hint="No. Whatsapp"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -73,6 +80,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/tv_register_perusahaan"
                 style="@style/modifiedEditText"
                 android:hint="Perusahaan"
                 android:inputType="text"
@@ -84,6 +92,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
+                android:id="@+id/tv_register_alamat_perusahaan"
                 style="@style/modifiedEditText"
                 android:hint="Alamat Perusahaan"
                 android:inputType="text"
@@ -95,7 +104,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/tv_password"
+                android:id="@+id/tv_regsiter_password"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"

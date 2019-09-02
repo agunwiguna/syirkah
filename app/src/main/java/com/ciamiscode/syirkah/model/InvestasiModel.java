@@ -22,10 +22,12 @@ public class InvestasiModel {
     private String total_biaya;
     @SerializedName("nama")
     private String nama;
-    @SerializedName("perushaan")
+    @SerializedName("perusahaan")
     private String perusahaan;
     @SerializedName("foto")
     private String foto;
+    @SerializedName("sisa")
+    private String sisa;
 
     public String getId_user() {
         return id_user;
@@ -113,5 +115,13 @@ public class InvestasiModel {
 
     public void setId_investasi(String id_investasi) {
         this.id_investasi = id_investasi;
+    }
+
+    public String getSisa() {
+        return sisa;
+    }
+
+    public void setSisa(String sisa) {
+        this.sisa = sisa;
     }
 }
