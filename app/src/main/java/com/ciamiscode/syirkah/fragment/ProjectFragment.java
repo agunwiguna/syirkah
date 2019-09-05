@@ -42,12 +42,10 @@ public class ProjectFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerAllInvestasi);
         progress = view.findViewById(R.id.progress_bar);
 
-        //viewAdapter = new InvestasiAllAdapter(getContext(),mItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(viewAdapter);
-        //viewAdapter.notifyDataSetChanged();
 
         loadDataAllInvestasi();
 
@@ -75,6 +73,7 @@ public class ProjectFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
+                //progress.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Oops, Tidak Ada Koneksi Internet!! ", Toast.LENGTH_SHORT).show();
             }
         });

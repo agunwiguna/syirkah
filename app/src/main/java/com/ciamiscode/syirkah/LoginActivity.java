@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
 
         sharedPrefManager = new SharedPrefManager(this);
 
@@ -102,11 +99,29 @@ public class LoginActivity extends AppCompatActivity {
                                                 String nama = jsonRESULT.getJSONObject("user").getString("nama");
                                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
 
+                                                String alamat = jsonRESULT.getJSONObject("user").getString("alamat");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_ALAMAT, alamat);
+
+                                                String email = jsonRESULT.getJSONObject("user").getString("email");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
+
+                                                String telpon = jsonRESULT.getJSONObject("user").getString("telpon");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_TELPON, telpon);
+
                                                 String perusahaan = jsonRESULT.getJSONObject("user").getString("perusahaan");
                                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_PERUSAHAAN, perusahaan);
 
+                                                String alamat_perusahaan = jsonRESULT.getJSONObject("user").getString("alamat_perusahaan");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_ALAMAT_PERUSAHAAN, alamat_perusahaan);
+
                                                 String foto = jsonRESULT.getJSONObject("user").getString("foto");
                                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
+
+                                                String emas = jsonRESULT.getJSONObject("user").getString("emas");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAS, emas);
+
+                                                String perak = jsonRESULT.getJSONObject("user").getString("perak");
+                                                sharedPrefManager.saveSPString(SharedPrefManager.SP_PERAK, perak);
 
                                                 sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                                                 startActivity(new Intent(LoginActivity.this, MainActivity.class)

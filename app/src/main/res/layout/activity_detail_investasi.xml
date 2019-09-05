@@ -52,7 +52,7 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -60,259 +60,280 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/tv_detail_nama_investasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/rubik_regular"
-                tools:text="Project Kosan-Kosan"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_regular"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Deskripsi Proyek :"/>
-
-        <TextView
-            android:id="@+id/tv_detail_deskripsi_investasi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="@string/content_text"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/rubik_regular"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Mulai Proyek"/>
-
-                <TextView
-                    android:id="@+id/tv_detail_tgl_mulai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/rubik_regular"
-                    tools:text="22 Agustus 2019"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:fontFamily="@font/rubik_regular"
-                    android:text="Tanggal Selesai Proyek "/>
-
-                <TextView
-                    android:id="@+id/tv_detail_tgl_selesai"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="1"
-                    android:text="30 Agustus 2019"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:fontFamily="@font/rubik_regular"
-                    android:text="Kebutuhan Biaya Proyek"/>
-
-                <TextView
-                    android:id="@+id/tv_detail_kebutuhan_biaya"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:fontFamily="@font/rubik_regular"
-                    android:text="Total Biaya Proyek"/>
-
-                <TextView
-                    android:id="@+id/tv_detail_total_biaya"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:fontFamily="@font/rubik_regular"
-                    android:text="Sisa Biaya Proyek"/>
-
-                <TextView
-                    android:id="@+id/tv_detail_sisa_biaya"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="1"
-                    tools:text="Rp. 2.000.000"
-                    android:fontFamily="@font/rubik_regular"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-        </TableLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:text="Pemilik Proyek"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/tv_detail_profile_investasi"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:civ_border_color="@android:color/white"
-                app:civ_border_width="3dp"
-                tools:src="@android:color/darker_gray" />
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/tv_detail_profile_investasi"
-                android:layout_toRightOf="@id/tv_detail_profile_investasi"
-                android:orientation="vertical">
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_detail_nama_pemilik"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/rubik_regular"
-                    tools:text="Nama Pemilik Proyek" />
+                    android:background="@color/colorPrimary"/>
 
                 <TextView
-                    android:id="@+id/tv_detail_perusahaan"
+                    android:id="@+id/tv_detail_nama_investasi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/rubik_regular"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    tools:text="Perusahaan" />
+                    tools:text="Project Kosan-Kosan"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_regular"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:text="Deskripsi Proyek :"/>
 
-        <Button
-            android:id="@+id/btnInvestasiNow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:text="Investasi Sekarang"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:textAllCaps="false"
-            android:background="@drawable/rounded_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            <TextView
+                android:id="@+id/tv_detail_deskripsi_investasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/content_text"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/rubik_regular"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
 
-    </LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="Tanggal Mulai Proyek"/>
+
+                    <TextView
+                        android:id="@+id/tv_detail_tgl_mulai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/rubik_regular"
+                        tools:text="22 Agustus 2019"
+                        android:textColor="@android:color/black"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="Tanggal Selesai Proyek "/>
+
+                    <TextView
+                        android:id="@+id/tv_detail_tgl_selesai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="1"
+                        android:text="30 Agustus 2019"
+                        android:fontFamily="@font/rubik_regular"
+                        android:textColor="@android:color/black"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="Kebutuhan Biaya Proyek"/>
+
+                    <TextView
+                        android:id="@+id/tv_detail_kebutuhan_biaya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="1"
+                        tools:text="Rp. 2.000.000"
+                        android:fontFamily="@font/rubik_regular"
+                        android:textColor="@android:color/black"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="Total Biaya Proyek"/>
+
+                    <TextView
+                        android:id="@+id/tv_detail_total_biaya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="1"
+                        tools:text="Rp. 2.000.000"
+                        android:fontFamily="@font/rubik_regular"
+                        android:textColor="@android:color/black"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="Sisa Biaya Proyek"/>
+
+                    <TextView
+                        android:id="@+id/tv_detail_sisa_biaya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="1"
+                        tools:text="Rp. 2.000.000"
+                        android:fontFamily="@font/rubik_regular"
+                        android:textColor="@android:color/black"/>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:text="Pemilik Proyek"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/tv_detail_profile_investasi"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    app:civ_border_color="@android:color/white"
+                    app:civ_border_width="3dp"
+                    tools:src="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/tv_detail_profile_investasi"
+                    android:layout_toRightOf="@id/tv_detail_profile_investasi"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_detail_nama_pemilik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/rubik_regular"
+                        tools:text="Nama Pemilik Proyek" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_perusahaan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_regular"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        tools:text="Perusahaan" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnInvestasiNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:text="Investasi Sekarang"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+            <Button
+                android:id="@+id/btnChatInvestasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:text="Chat Sekarang"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_button_green"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

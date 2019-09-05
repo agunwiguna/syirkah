@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
@@ -25,104 +26,53 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_gold" />
 
-            <TextView
-                android:id="@+id/det_nama_ustadz"
+            <LinearLayout
+                android:id="@+id/title_gram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/det_foto_ustadz"
+                android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/nunito_bold"
-                android:text="200 Gram"
-                android:textColor="@android:color/black"
-                android:textSize="17sp" />
+                android:layout_below="@id/det_foto_ustadz">
+
+                <TextView
+                    android:id="@+id/dialog_jenis_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito_bold"
+                    tools:text="Emas"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/dialog_berat_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    tools:text="10"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Gram"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/garis"
                 android:layout_width="200dp"
                 android:layout_height="5dp"
-                android:layout_below="@+id/det_nama_ustadz"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/garis_putus_putus"
-                android:layerType="software" />
-
-            <TextView
-                android:id="@+id/det_alamat_ustadz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/garis"
-                android:layout_centerHorizontal="true"
-                android:drawableLeft="@drawable/ic_shopping_basket_black_24dp"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/darker_gray"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="Harga Beli : Rp. 200.000"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:id="@+id/garis2"
-                android:layout_width="200dp"
-                android:layout_height="5dp"
-                android:layout_below="@+id/det_alamat_ustadz"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/garis_putus_putus"
-                android:layerType="software" />
-
-            <TextView
-                android:id="@+id/det_masjid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/garis2"
-                android:layout_centerHorizontal="true"
-                android:drawableLeft="@drawable/ic_shopping_basket_black_24dp"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/darker_gray"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="Harga Jual : Rp. 250.000"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:id="@+id/garis3"
-                android:layout_width="200dp"
-                android:layout_height="5dp"
-                android:layout_below="@+id/det_masjid"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/garis_putus_putus"
-                android:layerType="software" />
-
-            <TextView
-                android:id="@+id/det_penjual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/garis3"
-                android:layout_centerHorizontal="true"
-                android:drawableLeft="@drawable/ic_supervisor_account_black_24dp"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/darker_gray"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="Penjuak : Agun Wiguna"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:id="@+id/garis4"
-                android:layout_width="200dp"
-                android:layout_height="5dp"
-                android:layout_below="@+id/det_penjual"
+                android:layout_below="@+id/title_gram"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -130,10 +80,190 @@
                 android:layerType="software" />
 
             <LinearLayout
-                android:id="@+id/call_pengguna"
+                android:id="@+id/title_harga_jual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/garis"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_shopping_basket_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@android:color/darker_gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginRight="8dp"
+                    android:paddingTop="5dp"
+                    android:text="Harga Beli :"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/dialog_harga_beli_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:paddingTop="5dp"
+                    android:text="Rp. 200000"
+                    android:textColor="@android:color/darker_gray"
+                    android:drawablePadding="10dp"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis2"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_harga_jual"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/title_harga_beli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/garis2"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_shopping_basket_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@android:color/darker_gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginRight="8dp"
+                    android:paddingTop="5dp"
+                    android:text="Harga Jual :"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/dialog_harga_jual_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:paddingTop="5dp"
+                    android:text="Rp. 200000"
+                    android:textColor="@android:color/darker_gray"
+                    android:drawablePadding="10dp"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis3"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_harga_beli"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/title_tahun_produksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/garis3"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_work_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@android:color/darker_gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginRight="8dp"
+                    android:paddingTop="5dp"
+                    android:text="Tahun Produksi :"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/dialog_tahun_produksi_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:paddingTop="5dp"
+                    tools:text="2015"
+                    android:textColor="@android:color/darker_gray"
+                    android:drawablePadding="10dp"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis4"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_tahun_produksi"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/title_pemilik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/garis4"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_supervisor_account_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@android:color/darker_gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginRight="8dp"
+                    android:paddingTop="5dp"
+                    android:text="Penjual : "
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/dialog_pemilik_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:paddingTop="5dp"
+                    tools:text="Nama Pemilik"
+                    android:textColor="@android:color/darker_gray"
+                    android:drawablePadding="10dp"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis5"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_pemilik"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/call_penjual_logam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/garis4"
+                android:layout_below="@+id/garis5"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"

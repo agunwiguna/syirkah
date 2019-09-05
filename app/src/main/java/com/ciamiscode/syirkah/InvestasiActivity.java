@@ -53,6 +53,7 @@ public class InvestasiActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(InvestasiActivity.this,AddProjectActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -85,6 +86,7 @@ public class InvestasiActivity extends AppCompatActivity {
                     viewAdapter = new InvestasiAdapter(InvestasiActivity.this, mItems);
                     viewAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(viewAdapter);
+                    viewAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -94,6 +96,6 @@ public class InvestasiActivity extends AppCompatActivity {
                 Toast.makeText(InvestasiActivity.this, "Oops, Tidak Ada Koneksi Internet!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
 }

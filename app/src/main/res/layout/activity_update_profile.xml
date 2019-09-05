@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".UpdateProfileActivity">
+
 
     <RelativeLayout
         android:id="@+id/nav_investasi"
@@ -16,119 +17,161 @@
         android:paddingEnd="20dp">
 
         <TextView
-            android:layout_marginTop="20dp"
             android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito_bold"
             android:text="Ubah Profile"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_below="@+id/nama"
             android:id="@+id/pekerjaan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textFontWeight="700"
-            android:textStyle="bold"
+            android:layout_below="@+id/nama"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/rubik_regular"
             android:text="Syirkah Apps"
-            android:textColor="#A9D3FD"/>
+            android:textColor="#A9D3FD"
+            android:textFontWeight="700"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/loginViewsMargin">
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img_user"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:src="@android:color/darker_gray" />
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                style="@style/modifiedEditText"
-                android:hint="Nama Lengkap"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                style="@style/modifiedEditText"
-                android:hint="Alamat"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-            <EditText
-                style="@style/modifiedEditText"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:hint="Email"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-            <EditText
-                style="@style/modifiedEditText"
-                android:inputType="text"
-                android:maxLines="1"
-                android:hint="No. Whatsapp"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                style="@style/modifiedEditText"
-                android:hint="Perusahaan"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
-
-            <EditText
-                style="@style/modifiedEditText"
-                android:hint="Alamat Perusahaan"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:background="@drawable/rounded_button"
-            android:text="Ubah Profile"
-            android:textAllCaps="false"
-            android:textColor="@color/whiteTextColor" />
+            android:orientation="vertical"
+            android:padding="@dimen/loginViewsMargin">
 
-    </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_ubah_profile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_default_profile" />
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_nama"
+                    style="@style/modifiedEditText"
+                    android:hint="Nama Lengkap"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_alamat"
+                    style="@style/modifiedEditText"
+                    android:hint="Alamat"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_email"
+                    style="@style/modifiedEditText"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_telpon"
+                    style="@style/modifiedEditText"
+                    android:hint="No. Whatsapp"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_perusahaan"
+                    style="@style/modifiedEditText"
+                    android:hint="Perusahaan"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_alamat_perusahaan"
+                    style="@style/modifiedEditText"
+                    android:hint="Alamat Perusahaan"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_emas"
+                    style="@style/modifiedEditText"
+                    android:hint="Total Emas (Gram)"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/parent"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edt_ubah_perak"
+                    style="@style/modifiedEditText"
+                    android:hint="Total Perak (Gram)"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btn_ubah_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/rounded_button"
+                android:text="Ubah Profile"
+                android:textAllCaps="false"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/whiteTextColor" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

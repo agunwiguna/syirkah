@@ -9,9 +9,14 @@ public class SharedPrefManager {
 
     public static final String SP_ID_USER = "spIdUser";
     public static final String SP_NAMA = "spNama";
+    public static final String SP_ALAMAT = "spAlamat";
     public static final String SP_EMAIL = "spEmail";
+    public static final String SP_TELPON = "spTelpon";
     public static final String SP_PERUSAHAAN = "spPerusahaan";
+    public static final String SP_ALAMAT_PERUSAHAAN = "spAlamatPerusahaan";
     public static final String SP_FOTO = "spFoto";
+    public static final String SP_EMAS = "spEmas";
+    public static final String SP_PERAK = "spPerak";
 
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
@@ -46,16 +51,36 @@ public class SharedPrefManager {
         return sp.getString(SP_NAMA, "");
     }
 
+    public String getSPAlamat(){
+        return sp.getString(SP_ALAMAT, "");
+    }
+
     public String getSPEmail(){
         return sp.getString(SP_EMAIL, "");
+    }
+
+    public String getSPTelpon(){
+        return sp.getString(SP_TELPON, "");
     }
 
     public String getSpPerusahaan() {
         return sp.getString(SP_PERUSAHAAN,"");
     }
 
+    public String getSpAlamatPerusahaan() {
+        return sp.getString(SP_ALAMAT_PERUSAHAAN,"");
+    }
+
     public String getSpFoto() {
         return sp.getString(SP_FOTO,"") ;
+    }
+
+    public String getSpEmas() {
+        return sp.getString(SP_EMAS,"");
+    }
+
+    public String getSpPerak() {
+        return sp.getString(SP_PERAK,"");
     }
 
     public Boolean getSPSudahLogin(){

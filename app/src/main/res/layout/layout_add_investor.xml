@@ -47,7 +47,7 @@
                 android:id="@+id/et_dana_investor"
                 style="@style/modifiedEditText"
                 android:hint="Investasi Biaya (Rp.)"
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>

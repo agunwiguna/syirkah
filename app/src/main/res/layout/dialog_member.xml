@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
@@ -19,31 +20,32 @@
             android:layout_marginTop="20dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/det_foto_ustadz"
+                android:id="@+id/dialog_foto_member"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
-                android:src="@android:color/darker_gray"
+                android:src="@drawable/ic_default_profile"
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="5dp" />
 
             <TextView
-                android:id="@+id/det_nama_ustadz"
+                android:id="@+id/dialog_nama_member"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/det_foto_ustadz"
+                android:layout_below="@+id/dialog_foto_member"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Agun Wiguna"
+                tools:text="Agun Wiguna"
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/status_ustadz"
+                android:id="@+id/dialog_perusahaan_member"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/det_nama_ustadz"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/dialog_nama_member"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/rubik_regular"
                 android:text="Cyberlabs" />
@@ -52,7 +54,7 @@
                 android:id="@+id/garis"
                 android:layout_width="200dp"
                 android:layout_height="5dp"
-                android:layout_below="@+id/status_ustadz"
+                android:layout_below="@+id/dialog_perusahaan_member"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -60,7 +62,7 @@
                 android:layerType="software" />
 
             <TextView
-                android:id="@+id/det_alamat_ustadz"
+                android:id="@+id/dialog_alamat_member"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/garis"
@@ -79,34 +81,7 @@
                 android:id="@+id/garis2"
                 android:layout_width="200dp"
                 android:layout_height="5dp"
-                android:layout_below="@+id/det_alamat_ustadz"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/garis_putus_putus"
-                android:layerType="software" />
-
-            <TextView
-                android:id="@+id/det_masjid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/garis2"
-                android:layout_centerHorizontal="true"
-                android:drawableLeft="@drawable/ic_wb_sunny_black_24dp"
-                android:drawablePadding="10dp"
-                android:drawableTint="@android:color/darker_gray"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="10 Gram"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:id="@+id/garis3"
-                android:layout_width="200dp"
-                android:layout_height="5dp"
-                android:layout_below="@+id/det_masjid"
+                android:layout_below="@+id/dialog_alamat_member"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -114,10 +89,103 @@
                 android:layerType="software" />
 
             <LinearLayout
-                android:id="@+id/call_pengguna"
+                android:id="@+id/title_emas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/garis2">
+
+                <TextView
+                    android:id="@+id/dialog_jenis_logam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Emas"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/dialog_emas_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    tools:text="10"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Gram"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis3"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_emas"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/title_perak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/garis3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Perak"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/dialog_perak_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    tools:text="10"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Gram"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/garis4"
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_below="@+id/title_perak"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/garis_putus_putus"
+                android:layerType="software" />
+
+            <LinearLayout
+                android:id="@+id/dialog_wa_member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/garis3"
+                android:layout_below="@+id/garis4"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
@@ -142,6 +210,5 @@
         </RelativeLayout>
 
     </RelativeLayout>
-
 
 </android.support.v7.widget.CardView>

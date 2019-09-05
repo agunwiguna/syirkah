@@ -2,6 +2,8 @@ package com.ciamiscode.syirkah;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,8 +15,12 @@ import android.widget.Toast;
 
 import com.ciamiscode.syirkah.api.ApiEndPoint;
 import com.ciamiscode.syirkah.api.ApiService;
+import com.ciamiscode.syirkah.fragment.ProjectFragment;
 import com.ciamiscode.syirkah.model.ResponseModel;
 import com.ciamiscode.syirkah.utils.SharedPrefManager;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,11 +49,13 @@ public class InvestorActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
 
         kebutuhanBiaya = findViewById(R.id.kebutuhan_dana_investasi);
-        //tvDana = findViewById(R.id.dana_investasi);
+
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
         final String sisa_biaya = getIntent().getStringExtra(EXTRA_SISA);
 
-        kebutuhanBiaya.setText(sisa_biaya);
+        kebutuhanBiaya.setText(formatRupiah.format((double)Integer.valueOf(sisa_biaya)));
 
         edtDana = findViewById(R.id.et_dana_investor);
 
@@ -97,6 +105,8 @@ public class InvestorActivity extends AppCompatActivity {
 
                                 if (statusCode.equals("200")) {
                                     Toast.makeText(InvestorActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(InvestorActivity.this,MainActivity.class));
+                                    finish();
                                 } else if (statusCode.equals("202")) {
                                     Toast.makeText(InvestorActivity.this, message, Toast.LENGTH_SHORT).show();
                                 } else if (statusCode.equals("404")) {

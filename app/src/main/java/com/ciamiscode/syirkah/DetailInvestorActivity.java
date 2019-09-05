@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.ciamiscode.syirkah.adapter.InvestorAdapter;
 import com.ciamiscode.syirkah.api.ApiEndPoint;
 import com.ciamiscode.syirkah.api.ApiService;
@@ -20,7 +23,10 @@ import com.ciamiscode.syirkah.model.InvestorModel;
 import com.ciamiscode.syirkah.model.ResponseModel;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -90,24 +96,35 @@ public class DetailInvestorActivity extends AppCompatActivity {
         String foto = getIntent().getStringExtra(EXTRA_FOTO);
         String sisa = getIntent().getStringExtra(EXTRA_SISA);
 
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
         namaInvestasi.setText(nama_investasi);
         descInvestasi.setText(deskripsi);
         tglMulai.setText(tgl_mulai);
         tglSelesai.setText(tgl_selesai);
-        kebutuhanBiaya.setText(kebutuhan_biaya);
-        totalBiaya.setText(total_biaya);
+        kebutuhanBiaya.setText(formatRupiah.format((double)Integer.valueOf(kebutuhan_biaya)));
+        totalBiaya.setText(formatRupiah.format((double)Integer.valueOf(total_biaya)));
         namaPemilik.setText(nama);
         perusahaanInvestasi.setText(perusahaan);
-        sisaBiaya.setText(sisa);
+        sisaBiaya.setText(formatRupiah.format((double)Integer.valueOf(sisa)));
 
         String img_url = "http://syirkah.solution.dipointer.com/img/"+foto;
-        Glide.with(this).load(img_url).into(imgProfile);
 
-        //viewAdapter = new InvestorAdapter(this,mItems);
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.ic_default_profile)
+                .error(R.drawable.ic_default_profile)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(this).load(img_url)
+                .apply(options)
+                .into(imgProfile);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //recyclerView.setAdapter(viewAdapter);
 
         loadDataInvestor();
 
@@ -129,7 +146,7 @@ public class DetailInvestorActivity extends AppCompatActivity {
                     recyclerView.setAdapter(viewAdapter);
                     viewAdapter.notifyDataSetChanged();
                 }else if(statusCode.equals("404")){
-                    Toast.makeText(DetailInvestorActivity.this, "Oops, Data masih kosong!! ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailInvestorActivity.this, "Oops, Data Investor masih kosong!! ", Toast.LENGTH_SHORT).show();
                 }
             }
 

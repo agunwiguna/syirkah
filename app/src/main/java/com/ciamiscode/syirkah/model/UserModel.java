@@ -10,8 +10,8 @@ public class UserModel {
     private String alamat;
     @SerializedName("email")
     private String email;
-    @SerializedName("telepon")
-    private String telepon;
+    @SerializedName("telpon")
+    private String telpon;
     @SerializedName("perusahaan")
     private String perusahaan;
     @SerializedName("alamat_perusahaan")
@@ -20,6 +20,10 @@ public class UserModel {
     private String passwword;
     @SerializedName("foto")
     private String foto;
+    @SerializedName("emas")
+    private String emas;
+    @SerializedName("perak")
+    private String perak;
 
     public String getEmail() {
         return email;
@@ -53,12 +57,12 @@ public class UserModel {
         this.alamat = alamat;
     }
 
-    public String getTelepon() {
-        return telepon;
+    public String getTelpon() {
+        return telpon;
     }
 
-    public void setTelepon(String telepon) {
-        this.telepon = telepon;
+    public void setTelpon(String telpon) {
+        this.telpon = telpon;
     }
 
     public String getPerusahaan() {
@@ -83,5 +87,21 @@ public class UserModel {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getEmas() {
+        return emas;
+    }
+
+    public void setEmas(String emas) {
+        this.emas = emas;
+    }
+
+    public String getPerak() {
+        return perak;
+    }
+
+    public void setPerak(String perak) {
+        this.perak = perak;
     }
 }

@@ -39,7 +39,6 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp">
 
@@ -48,7 +47,7 @@
                     android:layout_gravity="center"
                     android:text="Register"
                     android:fontFamily="@font/nunito_bold"
-                    android:layout_marginTop="40dp"/>
+                    android:layout_marginTop="20dp"/>
                 <include
                     layout="@layout/layout_register"/>
 

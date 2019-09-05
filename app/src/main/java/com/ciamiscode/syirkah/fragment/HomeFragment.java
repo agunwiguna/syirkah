@@ -16,9 +16,11 @@ import android.widget.Toast;
 
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.adapter.InvestasiAllAdapter;
+import com.ciamiscode.syirkah.adapter.NewsAdapter;
 import com.ciamiscode.syirkah.api.ApiEndPoint;
 import com.ciamiscode.syirkah.api.ApiService;
 import com.ciamiscode.syirkah.model.InvestasiModel;
+import com.ciamiscode.syirkah.model.NewsModel;
 import com.ciamiscode.syirkah.model.ResponseModel;
 import com.ciamiscode.syirkah.utils.SharedPrefManager;
 
@@ -36,8 +38,8 @@ public class HomeFragment extends Fragment {
 
     SharedPrefManager sharedPrefManager;
 
-    private InvestasiAllAdapter viewAdapter;
-    private List<InvestasiModel> mItems = new ArrayList<>();
+    private NewsAdapter viewAdapter;
+    private List<NewsModel> mItems = new ArrayList<>();
     RecyclerView recyclerView;
     ProgressBar progress;
 
@@ -70,21 +72,21 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerLimitInvestasi);
         progress = view.findViewById(R.id.progress_bar);
 
-        viewAdapter = new InvestasiAllAdapter(getContext(),mItems);
+        viewAdapter = new NewsAdapter(getContext(),mItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(viewAdapter);
 
-        loadDataLimitInvestasi();
+        loadDataNews();
 
         return view;
     }
 
-    private void loadDataLimitInvestasi() {
+    private void loadDataNews() {
 
         ApiService api = ApiEndPoint.getClient().create(ApiService.class);
-        Call<ResponseModel> call = api.getAllLimitInvestasi();
+        Call<ResponseModel> call = api.getAllNews();
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
@@ -92,8 +94,8 @@ public class HomeFragment extends Fragment {
                 String message = response.body().getMessage();
                 progress.setVisibility(View.GONE);
                 if (statusCode.equals("200")) {
-                    mItems = response.body().getResult_limit_investasi();
-                    viewAdapter = new InvestasiAllAdapter(getContext(), mItems);
+                    mItems = response.body().getResult_news();
+                    viewAdapter = new NewsAdapter(getContext(), mItems);
                     recyclerView.setAdapter(viewAdapter);
                 }else if(statusCode.equals("404")){
                     Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
@@ -102,6 +104,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
+                progress.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Oops, Tidak Ada Koneksi Internet!! ", Toast.LENGTH_SHORT).show();
             }
         });

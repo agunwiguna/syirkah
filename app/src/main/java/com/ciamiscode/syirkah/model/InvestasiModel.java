@@ -28,6 +28,8 @@ public class InvestasiModel {
     private String foto;
     @SerializedName("sisa")
     private String sisa;
+    @SerializedName("telpon")
+    private String telpon;
 
     public String getId_user() {
         return id_user;
@@ -123,5 +125,13 @@ public class InvestasiModel {
 
     public void setSisa(String sisa) {
         this.sisa = sisa;
+    }
+
+    public String getTelpon() {
+        return telpon;
+    }
+
+    public void setTelpon(String telpon) {
+        this.telpon = telpon;
     }
 }

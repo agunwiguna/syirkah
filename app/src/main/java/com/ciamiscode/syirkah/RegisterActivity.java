@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -87,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                     register(encoded);
 
                 }else{
-                    Toast.makeText(RegisterActivity.this, "You must choose the image", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Foto profile tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -122,7 +123,6 @@ public class RegisterActivity extends AppCompatActivity {
                         new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
                         PReqCode);
             }
-
         }else{
             openGallery();
         }
@@ -142,40 +142,81 @@ public class RegisterActivity extends AppCompatActivity {
         String alamat = edtAlamat.getText().toString();
         String email = edtEmail.getText().toString();
         String telpon = edtTelpon.getText().toString();
-        String perusahaan = edtEmail.getText().toString();
+        String perusahaan = edtPerusahaan.getText().toString();
         String alamat_perusahaan = edtAlamatPerusahaan.getText().toString();
         String password = edtPassword.getText().toString();
 
-        progress = new ProgressDialog(RegisterActivity.this);
-        progress.setCancelable(false);
-        progress.setMessage("Harap Tunggu ...");
-        progress.show();
+        boolean isEmptyFields = false;
 
-        ApiService api = ApiEndPoint.getClient().create(ApiService.class);
-        Call<ResponseModel> call = api.register(nama,alamat,email,telpon,perusahaan,alamat_perusahaan,password,foto);
-        call.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                String statusCode = response.body().getStatusCode();
-                String message = response.body().getMessage();
+        if (TextUtils.isEmpty(nama)){
+            isEmptyFields = true;
+            edtNama.setError("Field ini tidak boleh kosong");
+        }
 
-                progress.dismiss();
+        if (TextUtils.isEmpty(alamat)){
+            isEmptyFields = true;
+            edtAlamat.setError("Field ini tidak boleh kosong");
+        }
 
-                if (statusCode.equals("200")) {
-                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                } else if (statusCode.equals("202")) {
-                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
-                } else if (statusCode.equals("500")) {
-                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(email)){
+            isEmptyFields = true;
+            edtEmail.setError("Field ini tidak boleh kosong");
+        }
+
+        if (TextUtils.isEmpty(telpon)){
+            isEmptyFields = true;
+            edtTelpon.setError("Field ini tidak boleh kosong");
+        }
+
+        if (TextUtils.isEmpty(perusahaan)){
+            isEmptyFields = true;
+            edtPerusahaan.setError("Field ini tidak boleh kosong");
+        }
+
+        if (TextUtils.isEmpty(alamat_perusahaan)){
+            isEmptyFields = true;
+            edtAlamatPerusahaan.setError("Field ini tidak boleh kosong");
+        }
+
+        if (TextUtils.isEmpty(password)){
+            isEmptyFields = true;
+            edtPassword.setError("Field ini tidak boleh kosong");
+        }
+
+        if (!isEmptyFields){
+            progress = new ProgressDialog(RegisterActivity.this);
+            progress.setCancelable(false);
+            progress.setMessage("Menyimpan ...");
+            progress.show();
+
+            ApiService api = ApiEndPoint.getClient().create(ApiService.class);
+            Call<ResponseModel> call = api.register(nama,alamat,email,telpon,perusahaan,alamat_perusahaan,password,foto);
+            call.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                    String statusCode = response.body().getStatusCode();
+                    String message = response.body().getMessage();
+
+                    progress.dismiss();
+
+                    if (statusCode.equals("200")) {
+                        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                        finish();
+                    } else if (statusCode.equals("202")) {
+                        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                    } else if (statusCode.equals("500")) {
+                        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseModel> call, Throwable t) {
-
-            }
-        });
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    progress.dismiss();
+                    Toast.makeText(RegisterActivity.this, "Oops, Tidak Ada Koneksi Internet!! ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
 }

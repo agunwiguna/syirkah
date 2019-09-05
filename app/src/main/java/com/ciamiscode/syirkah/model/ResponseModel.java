@@ -19,6 +19,9 @@ public class ResponseModel {
     List<InvestasiModel> result_limit_investasi;
     List<UserModel> result_member;
     List<InvestorModel> result_investor;
+    List<LogamModel> result_logam_user;
+    List<LogamModel> result_logam;
+    List<NewsModel> result_news;
 
     public String getStatusCode() {
         return statusCode;
@@ -66,5 +69,29 @@ public class ResponseModel {
 
     public void setResult_investor(List<InvestorModel> result_investor) {
         this.result_investor = result_investor;
+    }
+
+    public List<LogamModel> getResult_logam_user() {
+        return result_logam_user;
+    }
+
+    public void setResult_logam_user(List<LogamModel> result_logam_user) {
+        this.result_logam_user = result_logam_user;
+    }
+
+    public List<LogamModel> getResult_logam() {
+        return result_logam;
+    }
+
+    public void setResult_logam(List<LogamModel> result_logam) {
+        this.result_logam = result_logam;
+    }
+
+    public List<NewsModel> getResult_news() {
+        return result_news;
+    }
+
+    public void setResult_news(List<NewsModel> result_news) {
+        this.result_news = result_news;
     }
 }

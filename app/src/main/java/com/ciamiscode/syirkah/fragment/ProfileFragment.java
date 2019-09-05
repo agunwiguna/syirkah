@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.ciamiscode.syirkah.InvestasiActivity;
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.SellActivity;
@@ -24,10 +27,8 @@ public class ProfileFragment extends Fragment {
     CardView cv_setting,cv_sell,cv_investasi;
     private TextView namaProfile;
     private TextView namaPerushaan;
-    private TextView emas;
+    private TextView emas,perak;
     private ImageView foto;
-
-    int img = R.drawable.ic_logo_syirkah;
 
     SharedPrefManager sharedPrefManager;
 
@@ -68,8 +69,15 @@ public class ProfileFragment extends Fragment {
         foto = view.findViewById(R.id.img_profile);
         String img_url = "http://syirkah.solution.dipointer.com/img/"+sharedPrefManager.getSpFoto();
 
-        Glide.with(getContext())
-                .load(img_url)
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.ic_default_profile)
+                .error(R.drawable.ic_default_profile)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(getContext()).load(img_url)
+                .apply(options)
                 .into(foto);
 
         namaProfile = view.findViewById(R.id.tv_nama_profile);
@@ -79,7 +87,10 @@ public class ProfileFragment extends Fragment {
         namaPerushaan.setText(sharedPrefManager.getSpPerusahaan());
 
         emas = view.findViewById(R.id.tv_emas_profile);
-        emas.setText(sharedPrefManager.getIdUser());
+        emas.setText(sharedPrefManager.getSpEmas());
+
+        perak = view.findViewById(R.id.tv_perak_profile);
+        perak.setText(sharedPrefManager.getSpPerak());
 
         return view;
     }

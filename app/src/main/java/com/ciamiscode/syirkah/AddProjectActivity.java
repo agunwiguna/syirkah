@@ -2,6 +2,7 @@ package com.ciamiscode.syirkah;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -38,7 +39,6 @@ public class AddProjectActivity extends AppCompatActivity {
     EditText edtTotalBiaya;
 
     Button btnSave;
-    Button btnBack;
 
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date,dates;
@@ -173,7 +173,9 @@ public class AddProjectActivity extends AppCompatActivity {
 
                                 if (statusCode.equals("200")) {
                                     Toast.makeText(AddProjectActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(AddProjectActivity.this,InvestasiActivity.class));
                                     viewAdapter.notifyDataSetChanged();
+                                    finish();
                                 } else if (statusCode.equals("202")) {
                                     Toast.makeText(AddProjectActivity.this, message, Toast.LENGTH_SHORT).show();
                                 } else if (statusCode.equals("404")) {

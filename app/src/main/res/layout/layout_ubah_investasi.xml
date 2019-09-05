@@ -25,7 +25,7 @@
                 android:id="@+id/et_ubah_nama_proyek"
                 style="@style/modifiedEditText"
                 android:hint="Nama Proyek"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>
@@ -48,18 +48,12 @@
         <android.support.design.widget.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
-            <!--<EditText-->
-                <!--android:id="@+id/et_ubah_tgl_mulai"-->
-                <!--style="@style/modifiedEditText"-->
-                <!--android:clickable="true"-->
-                <!--android:editable="false"-->
-                <!--android:focusable="false"-->
-                <!--android:maxLines="1"-->
-                <!--android:hint="Tanggal Mulai"/>-->
             <EditText
                 android:id="@+id/et_ubah_tgl_mulai"
                 style="@style/modifiedEditText"
-                android:inputType="text"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
                 android:maxLines="1"
                 android:hint="Tanggal Mulai"/>
         </android.support.design.widget.TextInputLayout>
@@ -67,21 +61,14 @@
         <android.support.design.widget.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
-            <!--<EditText-->
-                <!--android:id="@+id/et_ubah_tgl_selesai"-->
-                <!--style="@style/modifiedEditText"-->
-                <!--android:clickable="true"-->
-                <!--android:editable="false"-->
-                <!--android:focusable="false"-->
-                <!--android:maxLines="1"-->
-                <!--android:hint="Tanggal Selesai"/>-->
             <EditText
                 android:id="@+id/et_ubah_tgl_selesai"
                 style="@style/modifiedEditText"
-                android:inputType="text"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
                 android:maxLines="1"
                 android:hint="Tanggal Selesai"/>
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout

@@ -15,11 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailInvestorActivity"></activity>
+        <activity android:name=".UbahPasswordActivity"></activity>
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".UbahLogamActivity" />
+        <activity android:name=".AddLogamActivity" />
+        <activity android:name=".DetailInvestorActivity" />
         <activity android:name=".InvestorActivity" />
         <activity android:name=".UbahInvestasiActivity" />
         <activity android:name=".DetailInvestasiActivity" />
-        <activity android:name=".AddProjectActivity" />
+        <activity
+            android:name=".AddProjectActivity"
+            android:noHistory="true" />
         <activity android:name=".UpdateProfileActivity" />
         <activity android:name=".SellActivity" />
         <activity android:name=".InvestasiActivity" />

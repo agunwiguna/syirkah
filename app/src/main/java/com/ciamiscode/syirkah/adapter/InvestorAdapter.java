@@ -13,10 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.model.InvestorModel;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class InvestorAdapter extends RecyclerView.Adapter<InvestorAdapter.MyHolder>{
 
@@ -41,10 +46,21 @@ public class InvestorAdapter extends RecyclerView.Adapter<InvestorAdapter.MyHold
         final InvestorModel im = mList.get(position);
         holder.nama.setText(im.getNama());
         holder.perusahaan.setText(im.getPerusahaan());
-        holder.dana.setText(im.getDana());
+
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+        holder.dana.setText(formatRupiah.format((double)Integer.valueOf(im.getDana())));
         String img_url = "http://syirkah.solution.dipointer.com/img/"+im.getFoto();
-        Glide.with(holder.itemView.getContext())
-                .load(img_url)
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.ic_default_profile)
+                .error(R.drawable.ic_default_profile)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(ctx).load(img_url)
+                .apply(options)
                 .into(holder.foto);
         holder.wa.setOnClickListener(new View.OnClickListener() {
             @Override

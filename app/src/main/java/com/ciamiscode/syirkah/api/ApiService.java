@@ -75,5 +75,73 @@ public interface ApiService {
     @GET("tampil_investor.php")
     Call<ResponseModel> getAllInvestor();
 
+    @FormUrlEncoded
+    @POST("store_logam.php")
+    Call<ResponseModel> postLogam(@Field("id_user") String id_user,
+                                     @Field("jenis") String jenis,
+                                     @Field("berat") String berat,
+                                     @Field("tahun_produksi") String tahun_produksi,
+                                     @Field("harga_beli") String harga_beli,
+                                     @Field("harga_jual") String harga_jual);
+
+    @GET("tampil_logam_user.php")
+    Call<ResponseModel> getLogamUser(@Query("id_user") String id_user);
+
+    @FormUrlEncoded
+    @POST("update_logam.php")
+    Call<ResponseModel> updateLogam(@Field("id_logam") String id_logam,
+                                  @Field("jenis") String jenis,
+                                  @Field("berat") String berat,
+                                  @Field("tahun_produksi") String tahun_produksi,
+                                  @Field("harga_beli") String harga_beli,
+                                  @Field("harga_jual") String harga_jual,
+                                    @Field("status") String status);
+
+    @FormUrlEncoded
+    @POST("delete_logam.php")
+    Call<ResponseModel> deleteLogam(@Field("id_logam") String id_logam);
+
+    @GET("tampil_all_logam.php")
+    Call<ResponseModel> getAllLogam();
+
+    @GET("tampil_news.php")
+    Call<ResponseModel> getAllNews();
+
+    @FormUrlEncoded
+    @POST("search_member.php")
+    Call<ResponseModel> getSearchMember(@Field("search") String search);
+
+    @FormUrlEncoded
+    @POST("ubah_password.php")
+    Call<ResponseModel> updatePassword(@Field("id_user") String id_user,
+                                       @Field("password") String password,
+                                       @Field("password_baru") String password_baru,
+                                       @Field("ulangi_password_baru") String ulangi_password_baru);
+
+    @FormUrlEncoded
+    @POST("ubah_profile.php")
+    Call<ResponseModel> updateProfile(@Field("id_user") String id_user,
+                                       @Field("nama") String nama,
+                                       @Field("alamat") String alamat,
+                                       @Field("email") String email,
+                                       @Field("telpon") String telpon,
+                                       @Field("perusahaan") String perusahaan,
+                                       @Field("alamat_perusahaan") String alamat_perusahaan,
+                                       @Field("emas") String emas,
+                                       @Field("perak") String perak,
+                                       @Field("foto") String foto);
+
+    @FormUrlEncoded
+    @POST("ubah_profile_test.php")
+    Call<ResponseModel> updateProfileTest(@Field("id_user") String id_user,
+                                      @Field("nama") String nama,
+                                      @Field("alamat") String alamat,
+                                      @Field("email") String email,
+                                      @Field("telpon") String telpon,
+                                      @Field("perusahaan") String perusahaan,
+                                      @Field("alamat_perusahaan") String alamat_perusahaan,
+                                      @Field("emas") String emas,
+                                      @Field("perak") String perak);
+
 
 }

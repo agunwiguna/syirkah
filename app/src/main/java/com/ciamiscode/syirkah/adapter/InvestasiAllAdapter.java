@@ -14,7 +14,9 @@ import com.ciamiscode.syirkah.DetailInvestasiActivity;
 import com.ciamiscode.syirkah.R;
 import com.ciamiscode.syirkah.model.InvestasiModel;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class InvestasiAllAdapter extends RecyclerView.Adapter<InvestasiAllAdapter.MyHolder> {
 
@@ -38,7 +40,11 @@ public class InvestasiAllAdapter extends RecyclerView.Adapter<InvestasiAllAdapte
     public void onBindViewHolder(MyHolder holder, int position) {
         final InvestasiModel im = mList.get(position);
         holder.nama_investasi.setText(im.getNama_investasi());
-        holder.kebutuhan_biaya.setText(im.getKebutuhan_biaya());
+
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+        holder.kebutuhan_biaya.setText(formatRupiah.format((double)Integer.valueOf(im.getKebutuhan_biaya())));
         holder.cvAllInvestasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +60,7 @@ public class InvestasiAllAdapter extends RecyclerView.Adapter<InvestasiAllAdapte
                 i.putExtra(DetailInvestasiActivity.EXTRA_PERUSAHAAN,im.getPerusahaan());
                 i.putExtra(DetailInvestasiActivity.EXTRA_FOTO,im.getFoto());
                 i.putExtra(DetailInvestasiActivity.EXTRA_SISA,im.getSisa());
+                i.putExtra(DetailInvestasiActivity.EXTRA_TELPON,im.getTelpon());
                 ctx.startActivity(i);
             }
         });

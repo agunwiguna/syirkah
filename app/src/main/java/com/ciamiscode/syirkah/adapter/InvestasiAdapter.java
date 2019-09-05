@@ -1,5 +1,6 @@
 package com.ciamiscode.syirkah.adapter;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,6 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ciamiscode.syirkah.DetailInvestasiActivity;
+import com.ciamiscode.syirkah.AddProjectActivity;
 import com.ciamiscode.syirkah.DetailInvestorActivity;
 import com.ciamiscode.syirkah.InvestasiActivity;
 import com.ciamiscode.syirkah.R;
@@ -26,7 +26,10 @@ import com.ciamiscode.syirkah.api.ApiService;
 import com.ciamiscode.syirkah.model.InvestasiModel;
 import com.ciamiscode.syirkah.model.ResponseModel;
 
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +40,7 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
     Context ctx;
     List<InvestasiModel> mList;
     private ProgressDialog progress;
+    private List<InvestasiModel> mItems = new ArrayList<>();
 
     public InvestasiAdapter(Context ctx, List<InvestasiModel> mList) {
         this.ctx = ctx;
@@ -55,7 +59,11 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
     public void onBindViewHolder(final MyHolder holder, final int position) {
         final InvestasiModel im = mList.get(position);
         holder.nama_investasi.setText(im.getNama_investasi());
-        holder.kebutuhan_biaya.setText(im.getKebutuhan_biaya());
+
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+        holder.kebutuhan_biaya.setText(formatRupiah.format((double)Integer.valueOf(im.getKebutuhan_biaya())));
         holder.updateInvestasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +86,6 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
         holder.dotmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //showPopupMenu(holder.dotmenu,position);
                 PopupMenu popup = new PopupMenu(ctx,holder.dotmenu );
                 popup.inflate(R.menu.menu_crud_card);
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -97,6 +104,7 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
                                 i.putExtra(UbahInvestasiActivity.EXTRA_KEBUTUHAN_BIAYA,im.getKebutuhan_biaya());
                                 i.putExtra(UbahInvestasiActivity.EXTRA_TOTAL_BIAYA,im.getTotal_biaya());
                                 ctx.startActivity(i);
+                                ((Activity)ctx).finish();
 
                                 return true;
                             case R.id.menu_hapus:
@@ -118,8 +126,8 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
 
                                         if (statusCode.equals("200")) {
                                             Toast.makeText(ctx, message, Toast.LENGTH_SHORT).show();
-                                            notifyItemRemoved(position);
-                                            notifyDataSetChanged();
+                                            ctx.startActivity(new Intent(ctx,InvestasiActivity.class));
+                                            ((Activity)ctx).finish();
                                         } else if (statusCode.equals("404")) {
                                             Toast.makeText(ctx, message, Toast.LENGTH_SHORT).show();
                                         } else if (statusCode.equals("500")) {
@@ -133,10 +141,7 @@ public class InvestasiAdapter extends RecyclerView.Adapter<InvestasiAdapter.MyHo
                                         Toast.makeText(ctx, "Oops, Tidak Ada Koneksi Internet!! ", Toast.LENGTH_SHORT).show();
                                     }
                                 });
-
-
                                 return true;
-
                         }
                         return false;
                     }
