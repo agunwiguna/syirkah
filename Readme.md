@@ -1,10 +1,10 @@
-#Syirkah Apps
+# Syirkah Apps
 
 ```
 Aplikasi Investasi dan Jual Beli Logam Mulia  
 ```
 
-#####Fitur Syirkah Apps
+##### Fitur Syirkah Apps
 
 * Login
 * Register Akun
